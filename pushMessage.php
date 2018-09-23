@@ -9,16 +9,16 @@ require_once('MyValidator.php');
 //$message　nameのパラーメーターをメッセージとする
 $message = htmlspecialchars($_GET["accountNo"]);
 // $v->lengthCheck($message,'length',23);
-//$v->regexCheck($message,'message','/[0-9]{5}/');
+//$v->regexCheck($message,'message','/[0-9]{7}/');
 //$v();
 
-echo gettype($message);
+echo gettype($message).'<br>';
 $ids = getUserIds();
 
 foreach($ids as $id){
-  echo $id;
-  echo gettype($id);
-  echo 'id = ' . $id['id'];
+  echo $id . '<br>';
+  echo gettype($id). '<br>';
+  echo 'id = ' . $id['id'] . '<br>';
   if($id['id'] == (int)$message) echo 'match';
 }
 
