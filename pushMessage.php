@@ -6,22 +6,20 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once('index.php');
 require_once('MyValidator.php');
 
-
-echo 'test test';
-
 //$message　nameのパラーメーターをメッセージとする
 $message = htmlspecialchars($_GET["accountNo"]);
 // $v->lengthCheck($message,'length',23);
 //$v->regexCheck($message,'message','/[0-9]{5}/');
 //$v();
-echo $message;
 
+echo gettype($message);
 $ids = getUserIds();
 
 foreach($ids as $id){
   echo $id;
+  echo gettype($id);
   echo 'id = ' . $id['id'];
-  if($id['id'] == $message) echo 'match';
+  if($id['id'] == (int)$message) echo 'match';
 }
 
 if($ids === PDO::PARAM_NULL){
