@@ -13,7 +13,7 @@ echo 'test test';
 $message = htmlspecialchars($_GET["accountNo"]);
 // $v->lengthCheck($message,'length',23);
 //$v->regexCheck($message,'message','/[0-9]{5}/');
-$v();
+//$v();
 echo $message;
 
 $ids = getUserIds();
