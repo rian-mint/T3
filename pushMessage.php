@@ -8,18 +8,17 @@ require_once('MyValidator.php');
 
 //$message　nameのパラーメーターをメッセージとする
 $message = htmlspecialchars($_GET["accountNo"]);
+
 $v = new MyValidator();
-// $v->lengthCheck($message,'length',23);
 $v->regexCheck($message,'message','/[0-9]{1,13}/');
 $v();
 
 $ids = getUserIds();
 
 foreach($ids as $id){
-  echo $id . '<br>';
-  echo gettype($id). '<br>';
-  echo 'id = ' . $id . '<br>';
-  if($id == (int)$message) echo 'match';
+  // echo gettype($id). '<br>';
+//  echo 'id = ' . $id . '<br>';
+  if($id == (int)$message) echo '1';
 }
 
 if($ids === PDO::PARAM_NULL){
