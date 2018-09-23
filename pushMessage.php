@@ -14,9 +14,14 @@ $message = htmlspecialchars($_GET["accountNo"]);
 // $v->lengthCheck($message,'length',23);
 //$v->regexCheck($message,'message','/[0-9]{5}/');
 $v();
-echo '$message';
+echo $message;
 
 $ids = getUserIds();
+echo $ids;
+
+foreach($ids as $id){
+  if($id === $message) echo 'match';
+}
 
 if($ids === PDO::PARAM_NULL){
   error_log('There is no id');
@@ -27,7 +32,8 @@ if($ids === PDO::PARAM_NULL){
 function getUserIds() {
 
   $dbh = dbConnection::getConnection();
-  $sql = 'select pgp_sym_decrypt(userid,\''. getenv('DB_ENCRYPT_PASS') .'\') from '. TABLE_NAME_IDS;
+  $sql = 'select * from '. TABLE_NAME_IDS;
+  #$sql = 'select pgp_sym_decrypt(userid,\''. getenv('DB_ENCRYPT_PASS') .'\') from '. TABLE_NAME_IDS;
   $sth = $dbh->prepare($sql);
   $sth->execute();
 
