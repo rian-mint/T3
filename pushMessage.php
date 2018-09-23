@@ -20,6 +20,7 @@ $ids = getUserIds();
 echo $ids;
 
 foreach($ids as $id){
+  echo $id;
   if($id === $message) echo 'match';
 }
 
