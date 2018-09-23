@@ -20,7 +20,8 @@ $ids = getUserIds();
 
 foreach($ids as $id){
   echo $id;
-  if($id == $message) echo 'match';
+  echo 'id = ' . $id['id'];
+  if($id['id'] == $message) echo 'match';
 }
 
 if($ids === PDO::PARAM_NULL){
