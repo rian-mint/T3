@@ -8,6 +8,7 @@ require_once('MyValidator.php');
 
 //$message　nameのパラーメーターをメッセージとする
 $message = htmlspecialchars($_GET["accountNo"]);
+$v() = new MyValidator();
 // $v->lengthCheck($message,'length',23);
 $v->regexCheck($message,'message','/[0-9]{1,13}/');
 $v();
