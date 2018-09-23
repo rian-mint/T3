@@ -17,11 +17,10 @@ $message = htmlspecialchars($_GET["accountNo"]);
 echo $message;
 
 $ids = getUserIds();
-echo $ids;
 
 foreach($ids as $id){
   echo $id;
-  if($id === $message) echo 'match';
+  if($id == $message) echo 'match';
 }
 
 if($ids === PDO::PARAM_NULL){
